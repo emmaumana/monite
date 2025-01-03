@@ -1,0 +1,81 @@
+@use './reset.scss' as *;
+@use './variables.scss' as *;
+
+* {
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  margin: 0 auto;
+  padding: 0.6rem;
+  font-size: 14px;
+  position: relative;
+  color: $c-primary;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+html {
+  overflow: hidden;
+}
+
+html,
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+body,
+#root {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $c-primary;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 3.2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 2.4rem;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: $c-accent;
+}
+
+li {
+  font-weight: 700;
+}

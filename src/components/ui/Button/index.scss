@@ -1,0 +1,48 @@
+@use '../../../assets/sass/variables' as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &:not(.icon) {
+    border-radius: 10px;
+    background: $c-white;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    line-height: 1em;
+    vertical-align: middle;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
+    min-width: 110px;
+    transition: 0.25s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.primary {
+      color: $c-white;
+      background-color: $c-accent;
+    }
+    &.inverted {
+      color: $c-accent;
+      background-color: $c-accent-light;
+    }
+    &.secondary {
+      color: $c-primary;
+      background-color: $c-secondary;
+    }
+  }
+}

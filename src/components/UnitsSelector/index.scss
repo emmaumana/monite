@@ -1,0 +1,36 @@
+@use '../../assets/sass/variables' as *;
+
+.selector {
+  position: relative;
+
+  &__options {
+    position: absolute;
+    top: 110%;
+    box-shadow: 0 5px 10px 5px $c-black-rgba;
+    background-color: $c-white;
+  }
+
+  &__list {
+    overflow-y: scroll;
+    max-height: 220px;
+  }
+
+  &__option {
+    padding: 20px;
+
+    &:not(.placeholder) {
+      font-weight: 500;
+      border-top: 1px solid $c-secondary;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $c-secondary;
+      }
+    }
+
+    &.placeholder {
+      user-select: none;
+    }
+  }
+}

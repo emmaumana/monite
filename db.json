@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "name": "Design services",
+      "type": "Product",
+      "units": "Days",
+      "price": 100,
+      "vat": 16,
+      "id": "208d"
+    },
+    {
+      "name": "QA Services",
+      "type": "Product",
+      "units": "Days",
+      "price": 100,
+      "vat": 16,
+      "id": "cd90"
+    },
+    {
+      "name": "Backend development",
+      "type": "Product",
+      "units": "Days",
+      "price": 100,
+      "vat": 16,
+      "id": "4527"
+    },
+    {
+      "name": "Frontend development",
+      "type": "Product",
+      "units": "Days",
+      "price": 100,
+      "vat": 16,
+      "id": "553d"
+    },
+    {
+      "name": "Analytics implementation",
+      "type": "Product",
+      "units": "Days",
+      "price": 100,
+      "vat": 16,
+      "id": "f878"
+    }
+  ],
+  "units": [
+    {
+      "name": "Days",
+      "id": "ab09"
+    },
+    {
+      "name": "Kilos",
+      "id": "4e6c"
+    }
+  ]
+}

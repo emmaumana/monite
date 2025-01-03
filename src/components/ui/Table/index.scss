@@ -1,0 +1,33 @@
+@use '../../../assets/sass/variables' as *;
+
+.table {
+  width: 100%;
+  text-align: left;
+
+  th,
+  td {
+    width: min-content;
+    padding: 10px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  th {
+    color: $c-primary-light;
+  }
+
+  td {
+    font-weight: 500;
+  }
+
+  &.selectable {
+    th,
+    td {
+      &:first-child {
+        max-width: 15px;
+      }
+    }
+  }
+}

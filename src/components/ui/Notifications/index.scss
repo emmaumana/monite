@@ -1,0 +1,16 @@
+@use '../../../assets/sass/variables' as *;
+
+.notifications {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+
+  &__item {
+    width: fit-content;
+  }
+
+  &__message {
+    font-weight: 700;
+    color: $c-white;
+  }
+}

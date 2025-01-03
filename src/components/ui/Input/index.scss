@@ -1,0 +1,23 @@
+@use '../../../assets/sass/variables' as *;
+
+.input {
+  &__label {
+    font-weight: 600;
+  }
+
+  &__input {
+    font-weight: 500;
+    padding: 10px;
+    border: 1px solid $c-secondary;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 1px $c-black-rgba;
+    outline: none;
+
+    &:focus {
+      border-color: $c-accent;
+    }
+    &:disabled {
+      background-color: $c-secondary;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use '../../../assets/sass/variables' as *;
+
+.checkbox {
+  label {
+    user-select: none;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $c-secondary;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 88%;
+      height: 88%;
+      background-color: $c-secondary;
+      transform: scale(0);
+      transform-origin: center;
+      transition: all 0.3s;
+    }
+
+    &:checked {
+      &::before {
+        transform: scale(1);
+      }
+    }
+  }
+}
