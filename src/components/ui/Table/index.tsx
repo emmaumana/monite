@@ -5,6 +5,7 @@ import './index.scss'
 interface ITableColumn {
   field: string
   header: string
+  suffix?: string
 }
 
 interface ITableRow {
@@ -45,7 +46,10 @@ export const Table = ({ rows, columns, selectable }: Props) => {
               </td>
             )}
             {columns.map((key) => (
-              <td key={`item-cell-${row[key.field]}`}>{capitalize(row[key.field])}</td>
+              <td key={`item-cell-${row[key.field]}`}>
+                {capitalize(row[key.field])}
+                {key.suffix || ''}
+              </td>
             ))}
           </tr>
         ))}

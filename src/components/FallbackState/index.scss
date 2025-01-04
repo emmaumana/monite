@@ -1,0 +1,16 @@
+@use '../../assets/sass/variables' as *;
+
+.fallback-state {
+  h5 {
+    font-size: 16px;
+    font-weight: 400;
+    word-spacing: 0.3px;
+    color: $c-primary-light;
+  }
+
+  img {
+    max-width: 100px;
+    pointer-events: none;
+    user-select: none;
+  }
+}

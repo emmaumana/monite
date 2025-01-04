@@ -1,10 +1,10 @@
 import { TBoxColor } from 'lib/themeConfig'
-import { Box } from '../Box'
-import { Icon } from '../Icon'
+import { Box } from '../../ui/Box'
+import { Icon } from '../../ui/Icon'
 import './index.scss'
-import { Button } from '../Button'
+import { Button } from '../../ui/Button'
 import { useNotifications } from 'hooks/useNotifications'
-import { TNotificationType } from 'components/NotificationContext'
+import { TNotificationType } from 'components/NotificationsProvider'
 
 export const Notifications = () => {
   const { notifications, removeNotification } = useNotifications()

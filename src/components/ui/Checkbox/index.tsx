@@ -20,7 +20,7 @@ export const Checkbox = ({ label, htmlFor, ...props }: Props) => {
     <Box {...styles} className="checkbox">
       {label ? (
         <>
-          <input className="checkbox__input" type="checkbox" {...props} />
+          {input}
           <label className="checkbox__label" htmlFor={htmlFor}>
             {label}
           </label>

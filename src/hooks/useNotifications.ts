@@ -1,4 +1,4 @@
-import { INotificationContext, NotificationContext } from 'components/NotificationContext'
+import { INotificationContext, NotificationContext } from 'components/NotificationsProvider'
 import { useContext } from 'react'
 
 export const useNotifications = (): INotificationContext => {

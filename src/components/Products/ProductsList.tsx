@@ -3,19 +3,19 @@ import { Button } from 'components/ui/Button'
 import { useEffect, useState } from 'react'
 import { Table } from 'components/ui/Table'
 import { NewProductModal } from 'components/NewProductModal'
-import { Notifications } from 'components/ui/Notifications'
 import { useProducts } from 'hooks/useProducts'
+import { FallbackState } from 'components/FallbackState'
 
 export const ProductsList = () => {
-  const { products, fetchProducts } = useProducts()
+  const { products, fetchProducts, error } = useProducts()
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const tableColumns = [
     { field: 'name', header: 'Name' },
     { field: 'type', header: 'Type' },
     { field: 'units', header: 'Units' },
-    { field: 'price', header: 'Price' },
-    { field: 'vat', header: 'VAT' },
+    { field: 'price', header: 'Price', suffix: ' €' },
+    { field: 'vat', header: 'VAT', suffix: '%' },
   ]
 
   useEffect(() => {
@@ -39,9 +39,17 @@ export const ProductsList = () => {
         <Button onClick={() => setIsModalOpen(true)}>Add New</Button>
       </Box>
 
-      {!!products.length && <Table selectable rows={products} columns={tableColumns} />}
+      {error ? (
+        <FallbackState
+          image="src/assets/images/error.png"
+          message="There was an error trying to connect to the server..."
+        />
+      ) : !!products.length ? (
+        <Table selectable rows={products} columns={tableColumns} />
+      ) : (
+        <FallbackState image="src/assets/images/empty-box.png" message="No products added yet..." />
+      )}
       {isModalOpen && <NewProductModal onClose={() => setIsModalOpen(false)} />}
-      <Notifications />
     </Box>
   )
 }

@@ -17,13 +17,13 @@ export interface INotificationContext {
 
 export const NotificationContext = createContext<INotificationContext | undefined>(undefined)
 
-export const NotificationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const NotificationsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [notifications, setNotifications] = useState<INotification[]>([])
 
   const notify = (notification: Omit<INotification, 'id'>) => {
     const id = nextId()
     setNotifications((prev) => [...prev, { ...notification, id }])
-    setTimeout(() => removeNotification(id), 3000)
+    setTimeout(() => removeNotification(id), 4000)
   }
 
   const removeNotification = (id: string) => {

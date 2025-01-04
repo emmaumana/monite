@@ -6,6 +6,7 @@ const PATH = `${import.meta.env.VITE_BASE_API_URL}/products`
 
 export interface IProductContext {
   products: IProduct[]
+  error: boolean
   fetchProducts: () => Promise<void>
   addNewProduct: (product: Omit<IProduct, 'id'>) => Promise<IProduct | undefined>
 }
@@ -16,6 +17,7 @@ export const ProductContext = createContext<IProductContext | undefined>(undefin
 export const ProductsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { notify } = useNotifications()
   const [products, setProducts] = useState<IProduct[]>([])
+  const [error, setError] = useState<boolean>(false)
 
   const fetchProducts = async () => {
     try {
@@ -27,6 +29,7 @@ export const ProductsProvider: React.FC<{ children: ReactNode }> = ({ children }
       const data = (await response.json()) as IProduct[]
       setProducts(data)
     } catch (error) {
+      setError(true)
       notify({ type: 'error', message: 'Failed to fetch products' })
     }
   }
@@ -48,6 +51,7 @@ export const ProductsProvider: React.FC<{ children: ReactNode }> = ({ children }
           type: 'success',
           message: `'${product.name}' was added successfully`,
         })
+
         return newProduct
       } else {
         notify({ type: 'error', message: 'Failed to add the product' })
@@ -58,7 +62,7 @@ export const ProductsProvider: React.FC<{ children: ReactNode }> = ({ children }
   }
 
   return (
-    <ProductContext.Provider value={{ products, fetchProducts, addNewProduct }}>
+    <ProductContext.Provider value={{ products, error, fetchProducts, addNewProduct }}>
       {children}
     </ProductContext.Provider>
   )
